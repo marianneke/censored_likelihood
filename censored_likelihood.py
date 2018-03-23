@@ -5,6 +5,10 @@ This is an estimator based on the GenericLikelihoodModel class in statsmodels
 which takes into account that some observations may be right-censored, as is
 often the case in survival analysis.
 
+Sources:
+  - https://en.wikipedia.org/wiki/Maximum_likelihood_estimation
+  - https://en.wikipedia.org/wiki/Censoring_(statistics)
+
 :Authors: Marianne Hoogeveen <marianne.hoogeveen@gmail.com>
 """
 
@@ -53,7 +57,7 @@ def _ll_ols(y, x, beta, sigma):
 
     :param matrix-like y: matrix where the first column is the target variable,
         and the second column is a boolean column indicating whether the target
-        variable is observed (1) or censored (0)
+        variable is observed (1) or right-censored (0)
     :param matrix x: features
     :param list-like beta: parameters
     :param float sigma: standard deviation
