@@ -18,6 +18,6 @@ differently:
  - if a data point has been observed, we compute the log-likelihood as the log
    of the pdf
  - if a data point is censored, we compute the log-likelihood as the log of the
-   survival function, with the survival function $S(t)$ being defined as the
-   probability of the time-of-death being to the _right_ of time $t$:
-   $S(t) = 1 - \mbox{CDF}(t)$
+   survival function, with the survival function `S(t)` being defined as the
+   probability of the time-of-death being to the _right_ of time `t`:
+   ```S(t) = 1 - \mbox{CDF}(t)```
