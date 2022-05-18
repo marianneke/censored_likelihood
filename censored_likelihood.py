@@ -66,7 +66,7 @@ def _ll_ols(y, x, beta, sigma):
     if y.shape[1] == 1:
         return _ll_ols_obs(y, x, beta, sigma)
 
-    target, obs = y[:, 0], np.int64(y[:, 1])
+    target, obs = y[:, 0], y[:, 1].astype(bool)
     target_obs, x_obs = target[obs], x[obs]
     target_cens, x_cens = target[~obs], x[~obs]
 
