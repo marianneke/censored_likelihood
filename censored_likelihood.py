@@ -113,3 +113,17 @@ class CensoredLikelihoodOLS(GenericLikelihoodModel):
                 _initial_values_params(self.endog[:, 0], self.exog), .5)
         return super(CensoredLikelihoodOLS, self).fit(
             start_params=start_params, maxiter=maxiter, maxfun=maxfun, **kwds)
+            
+       
+    def predict(self, params, exog=None):
+        """
+        Return linear predicted values from a design matrix.
+        :parm: array_like params. Parameters of a OLS model, includes beta and sigma.
+        :parms: array_like exog, optional. Design / exogenous data. Model exog is used if None.
+        :return: array_like. An array of fitted values.
+        Notes: If the model has not yet been fit, params is not optional.
+        """       
+        if exog is None:
+            exog = self.exog
+
+        return np.dot(exog, params[:-1])
